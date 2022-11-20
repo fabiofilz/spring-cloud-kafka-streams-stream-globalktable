@@ -31,3 +31,5 @@ hs_err_pid*
 .settings
 
 /Dockerfile
+
+message/src/main/java/com/fabio/springcloudexample/avro/*

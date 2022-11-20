@@ -7,7 +7,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 import java.util.Properties;
 
-import static com.fabio.springcloudexample.kafka.utils.TestUtil.getOrder;
+import static com.fabio.springcloudexample.kafka.utils.TestUtil.getOrderProto;
 
 public class OrderProtoProducer {
 
@@ -24,11 +24,11 @@ public class OrderProtoProducer {
     String customerId = "123456";
     String item = "box";
     Integer qty = 1;
-    OrdersProto.Orders event = getOrder(customerId, item, qty);
+    OrdersProto.Orders event = getOrderProto(customerId, item, qty);
 
     Producer<String, OrdersProto.Orders  > producer = new KafkaProducer<>(props);
     producer.send(new ProducerRecord<>(topicName, customerId, event)).get();
-    System.out.println("Sent order to Kafka: " + event);
+    System.out.println("Sent Order proto to Kafka: " + event);
     producer.flush();
     producer.close();
   }

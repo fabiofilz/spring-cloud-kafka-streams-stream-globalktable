@@ -7,7 +7,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 import java.util.Properties;
 
-import static com.fabio.springcloudexample.kafka.utils.TestUtil.getCustomer;
+import static com.fabio.springcloudexample.kafka.utils.TestUtil.getCustomerProto;
 
 public class CustomerProtoProducer {
 
@@ -24,7 +24,7 @@ public class CustomerProtoProducer {
     String customerId = "123456";
     String customerName = "Fabio";
     Boolean enabled = true;
-    CustomerDetailsProto.CustomerDetails event = getCustomer(customerId, customerName, enabled);
+    CustomerDetailsProto.CustomerDetails event = getCustomerProto(customerId, customerName, enabled);
 
     Producer<String, CustomerDetailsProto.CustomerDetails > producer = new KafkaProducer<>(props);
     producer.send(new ProducerRecord<>(topicName, customerId, event)).get();

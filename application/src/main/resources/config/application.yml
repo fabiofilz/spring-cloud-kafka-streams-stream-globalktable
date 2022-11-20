@@ -41,7 +41,7 @@ spring:
   cloud:
     stream:
       function:
-        definition: moveData;processOrdersVipCustomersProto
+        definition: moveData;processOrdersVipCustomersProto;processOrdersVipCustomersAvro
 
       default-binder: kstream
 
@@ -53,7 +53,7 @@ spring:
               brokers: localhost:9092
               configuration:
                 specific.avro.reader: true
-#                default.key.serde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                default.key.serde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
                 default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
                 schema.registry.url: http://localhost:8081
                 useNativeDecoding: false
