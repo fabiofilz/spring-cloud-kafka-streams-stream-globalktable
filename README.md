@@ -6,7 +6,10 @@ The app has 2 parts:
 
 2 - The Event from step 1 is a GlobalKTable that will be used as filter
 
+
+
 2.1 - processOrdersVipCustomersProto will receive a Stream Event as parameter 1 (proto) and execute a left join with GlobalKTable (proto) to remove disabled customers - output proto
+
 2.2 - processOrdersVipCustomersAvro will receive a Stream Event as parameter 1 (avro) and execute a left join with GlobalKTable (proto) to remove disabled customers - output avro
 
 # Steps to simulate
